@@ -1,0 +1,15 @@
+---
+// Mostra /fotos/<id>.jpg. Enquanto a foto não existir, fica um bloco neutro.
+const { id, alt = '', ratio = '4 / 3', class: classe = '' } = Astro.props;
+---
+
+<div class={`foto ${classe}`} style={`aspect-ratio: ${ratio}`}>
+  {id && (
+    <img
+      src={`/fotos/${id}.jpg`}
+      alt={alt}
+      loading="lazy"
+      onerror="this.style.display='none'"
+    />
+  )}
+</div>

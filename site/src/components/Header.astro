@@ -1,0 +1,50 @@
+---
+import textos from '../data/textos.json';
+
+const nav = textos.navegacao;
+const caminho = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/menu', texto: nav.menu },
+  { href: '/sobre', texto: nav.sobre },
+  { href: '/contactos', texto: nav.contactos },
+];
+---
+
+<header class="header">
+  <a class="logo" href="/">{textos.geral.nome_site.toLowerCase()}</a>
+
+  <button
+    type="button"
+    class="burger"
+    id="burger"
+    aria-label={nav.abrir_menu}
+    aria-expanded="false"
+    aria-controls="nav"
+    data-abrir={nav.abrir_menu}
+    data-fechar={nav.fechar_menu}
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="4" y1="8" x2="20" y2="8"></line>
+      <line x1="4" y1="16" x2="20" y2="16"></line>
+    </svg>
+  </button>
+
+  <nav class="nav" id="nav">
+    {links.map((l) => (
+      <a href={l.href} aria-current={caminho === l.href ? 'page' : undefined}>{l.texto}</a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      const aberto = nav.classList.toggle('aberto');
+      burger.setAttribute('aria-expanded', String(aberto));
+      burger.setAttribute('aria-label', aberto ? burger.dataset.fechar : burger.dataset.abrir);
+    });
+  }
+</script>

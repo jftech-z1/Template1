@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import Foto from '../components/Foto.astro';
+import InfoBlock from '../components/InfoBlock.astro';
+import textos from '../data/textos.json';
+import dados from '../data/produtos.json';
+
+const i = textos.inicio;
+const produtos = dados.produtos;
+
+const categorias = [
+  { id: 'gelados', titulo: i.gelados_titulo, link: i.gelados_link },
+  { id: 'waffles', titulo: i.waffles_titulo, link: i.waffles_link },
+  { id: 'crepes', titulo: i.crepes_titulo, link: i.crepes_link },
+].map((c) => ({
+  ...c,
+  foto: produtos.find((p) => p.categoria === c.id && p.disponivel)?.foto,
+}));
+---
+
+<Base>
+  <section class="container hero">
+    <div class="hero-texto">
+      <span class="barra"></span>
+      <h1>{i.titulo_linha1}<br />{i.titulo_linha2}</h1>
+      <p class="lead">{i.subtitulo}</p>
+      <div class="botoes">
+        <a class="btn btn-escuro" href="/menu">{i.botao_menu}</a>
+        <a class="btn btn-claro" href="/contactos">{i.botao_como_chegar}</a>
+      </div>
+    </div>
+    <Foto id={i.foto_principal} ratio="4 / 5" class="hero-foto" />
+  </section>
+
+  <section class="container seccao">
+    <p class="eyebrow">{i.seccao_produtos_titulo}</p>
+    <div class="cartoes">
+      {categorias.map((c) => (
+        <div class="cartao">
+          <Foto id={c.foto} ratio="1 / 1" />
+          <h3>{c.titulo}</h3>
+          <a class="cartao-link" href={`/menu#${c.id}`}>{c.link}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container seccao">
+    <div class="sobre-resumo">
+      <Foto id={textos.sobre.foto} ratio="4 / 3" />
+      <div class="sobre-texto">
+        <p class="eyebrow">{textos.sobre.titulo}</p>
+        <p class="frase">{textos.sobre.frase_destaque}</p>
+        <a class="cartao-link" href="/sobre">{i.sobre_link}</a>
+      </div>
+    </div>
+  </section>
+
+  <InfoBlock />
+</Base>

@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Foto from '../components/Foto.astro';
+import textos from '../data/textos.json';
+
+const s = textos.sobre;
+const pontos = [
+  { titulo: s.ponto1_titulo, texto: s.ponto1_texto },
+  { titulo: s.ponto2_titulo, texto: s.ponto2_texto },
+  { titulo: s.ponto3_titulo, texto: s.ponto3_texto },
+];
+---
+
+<Base titulo={s.titulo}>
+  <div class="container">
+    <div class="cabecalho-pagina">
+      <span class="barra"></span>
+      <h1 class="titulo-pagina">{s.titulo}</h1>
+    </div>
+
+    <div class="seccao">
+      <div class="sobre-resumo">
+        <Foto id={s.foto} ratio="4 / 3" />
+        <div class="sobre-texto">
+          <p class="frase">{s.frase_destaque}</p>
+          <p class="corpo">{s.texto}</p>
+        </div>
+      </div>
+
+      <div class="pontos">
+        {pontos.map((p) => (
+          <div class="ponto">
+            <strong>{p.titulo}</strong>
+            <span>{p.texto}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="botoes">
+        <a class="btn btn-escuro" href="/menu">{s.botao_menu}</a>
+      </div>
+    </div>
+  </div>
+</Base>

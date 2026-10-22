@@ -1,0 +1,123 @@
+{
+  "_nota": "Ficheiro de exemplo. Todos os valores são exemplos a substituir pelos produtos reais. 'foto' é o id da foto: o site procura o ficheiro com esse nome na pasta fotos (por exemplo fotos/g01.jpg). 'preco' em null = ainda por definir. 'alergenios' deve ser preenchido e confirmado por quem prepara os produtos.",
+
+  "produtos": [
+    {
+      "id": "g01",
+      "categoria": "gelados",
+      "nome": "Gelado de bola",
+      "descricao_curta": "Uma, duas ou três bolas ao teu gosto.",
+      "descricao": "Gelado cremoso servido em bola, em cone ou copo. Escolhe os sabores que quiseres.",
+      "ingredientes": ["leite", "natas", "açúcar", "aroma do sabor escolhido"],
+      "opcoes": ["Baunilha", "Chocolate", "Morango", "Limão"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "g01",
+      "disponivel": true
+    },
+    {
+      "id": "g02",
+      "categoria": "gelados",
+      "nome": "Taça de gelado",
+      "descricao_curta": "Gelado em taça, com cobertura.",
+      "descricao": "Várias bolas de gelado numa taça, com cobertura e um toque crocante.",
+      "ingredientes": ["gelado", "cobertura", "bolacha"],
+      "opcoes": ["Baunilha", "Chocolate", "Morango", "Limão"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "g02",
+      "disponivel": true
+    },
+    {
+      "id": "g03",
+      "categoria": "gelados",
+      "nome": "Sundae da casa",
+      "descricao_curta": "A nossa taça especial.",
+      "descricao": "Gelado em camadas com calda, natas e fruta.",
+      "ingredientes": ["gelado", "calda", "natas", "fruta"],
+      "opcoes": ["Baunilha", "Chocolate", "Morango"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "g03",
+      "disponivel": true
+    },
+    {
+      "id": "w01",
+      "categoria": "waffles",
+      "nome": "Waffle clássico",
+      "descricao_curta": "Feito na hora, quente e dourado.",
+      "descricao": "Waffle crocante por fora e macio por dentro, servido simples ou com a cobertura que escolheres.",
+      "ingredientes": ["farinha", "ovos", "leite", "manteiga", "açúcar"],
+      "opcoes": ["Açúcar em pó", "Mel", "Chocolate", "Doce de leite"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "w01",
+      "disponivel": true
+    },
+    {
+      "id": "w02",
+      "categoria": "waffles",
+      "nome": "Waffle com gelado",
+      "descricao_curta": "Waffle quente com uma bola de gelado.",
+      "descricao": "Waffle recém-feito com gelado por cima, para juntar o quente e o frio.",
+      "ingredientes": ["waffle", "gelado", "cobertura"],
+      "opcoes": ["Baunilha", "Chocolate", "Morango"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "w02",
+      "disponivel": true
+    },
+    {
+      "id": "w03",
+      "categoria": "waffles",
+      "nome": "Waffle com fruta",
+      "descricao_curta": "Waffle com fruta fresca.",
+      "descricao": "Waffle servido com fruta fresca da época e um fio de calda.",
+      "ingredientes": ["waffle", "fruta fresca", "calda"],
+      "opcoes": ["Morango", "Banana", "Frutos vermelhos"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "w03",
+      "disponivel": true
+    },
+    {
+      "id": "c01",
+      "categoria": "crepes",
+      "nome": "Crepe de açúcar e canela",
+      "descricao_curta": "O clássico, simples e quente.",
+      "descricao": "Crepe fino, dobrado e polvilhado com açúcar e canela.",
+      "ingredientes": ["farinha", "ovos", "leite", "açúcar", "canela"],
+      "opcoes": ["Com limão", "Com mel"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "c01",
+      "disponivel": true
+    },
+    {
+      "id": "c02",
+      "categoria": "crepes",
+      "nome": "Crepe de chocolate",
+      "descricao_curta": "Recheado com chocolate.",
+      "descricao": "Crepe quente recheado com chocolate cremoso.",
+      "ingredientes": ["farinha", "ovos", "leite", "chocolate"],
+      "opcoes": ["Chocolate de leite", "Chocolate negro", "Com avelã"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "c02",
+      "disponivel": true
+    },
+    {
+      "id": "c03",
+      "categoria": "crepes",
+      "nome": "Crepe com fruta",
+      "descricao_curta": "Fresco e leve.",
+      "descricao": "Crepe recheado com fruta fresca e um toque de natas.",
+      "ingredientes": ["farinha", "ovos", "leite", "fruta fresca", "natas"],
+      "opcoes": ["Morango", "Banana", "Frutos vermelhos"],
+      "preco": null,
+      "alergenios": [],
+      "foto": "c03",
+      "disponivel": true
+    }
+  ]
+}

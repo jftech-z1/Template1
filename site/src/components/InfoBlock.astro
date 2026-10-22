@@ -1,0 +1,23 @@
+---
+import textos from '../data/textos.json';
+
+const c = textos.contactos;
+---
+
+<section class="info">
+  <div class="info-grelha">
+    <div class="info-item">
+      <p class="eyebrow">{c.horario_titulo}</p>
+      <p>{c.horario}</p>
+    </div>
+    <div class="info-item">
+      <p class="eyebrow">{c.morada_titulo}</p>
+      <p>{c.morada_linha1}<br />{c.morada_linha2}</p>
+    </div>
+    <div class="info-item">
+      <p class="eyebrow">{c.contacto_titulo}</p>
+      <p>{c.telefone}<br />{textos.geral.instagram}</p>
+    </div>
+    <a class="btn btn-sobre-escuro" href="/contactos">{c.botao_como_chegar}</a>
+  </div>
+</section>

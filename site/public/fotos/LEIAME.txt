@@ -1,0 +1,7 @@
+Coloca aqui as fotografias.
+
+- Cada produto usa o seu id como nome do ficheiro: g01.jpg, w02.jpg, c03.jpg...
+  (o id está no campo "foto" de cada produto em src/data/produtos.json)
+- Fotos da página inicial e do Sobre: hero.jpg e sobre.jpg
+  (os nomes estão em src/data/textos.json)
+- Formato: .jpg. Enquanto não houver foto, o site mostra um bloco neutro.

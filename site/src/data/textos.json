@@ -1,0 +1,75 @@
+{
+  "_nota": "Ficheiro de exemplo. Cada variável é um texto do site. Os valores entre [parênteses retos] são placeholders a substituir. Mantém os nomes das variáveis (à esquerda) e altera apenas os textos (à direita).",
+  "geral": {
+    "nome_site": "Delycius",
+    "copyright": "© delycius",
+    "instagram": "[Instagram]",
+    "politica_privacidade": "[Política de privacidade]",
+    "idioma": "pt",
+    "descricao_site": "[Descrição curta do site, para aparecer nas pesquisas do Google]"
+  },
+  "navegacao": {
+    "menu": "Menu",
+    "sobre": "Sobre",
+    "contactos": "Contactos",
+    "abrir_menu": "Abrir menu",
+    "fechar_menu": "Fechar menu",
+    "fechar": "Fechar"
+  },
+  "inicio": {
+    "titulo_linha1": "Doces simples,",
+    "titulo_linha2": "feitos com calma.",
+    "subtitulo": "Gelados, waffles e crepes.",
+    "botao_menu": "Ver menu",
+    "botao_como_chegar": "Como chegar",
+    "seccao_produtos_titulo": "O que fazemos",
+    "gelados_titulo": "Gelados",
+    "gelados_link": "Ver gelados →",
+    "waffles_titulo": "Waffles",
+    "waffles_link": "Ver waffles →",
+    "crepes_titulo": "Crepes",
+    "crepes_link": "Ver crepes →",
+    "foto_principal": "hero",
+    "sobre_link": "Saber mais →"
+  },
+  "menu": {
+    "titulo": "Menu",
+    "categoria_gelados": "Gelados",
+    "categoria_waffles": "Waffles",
+    "categoria_crepes": "Crepes",
+    "opcoes_gelados": "Sabores",
+    "opcoes_waffles": "Coberturas",
+    "opcoes_crepes": "Recheios",
+    "ingredientes_titulo": "Ingredientes",
+    "nota_alergenios": "[Nota sobre alergénios e opções vegan / sem glúten]",
+    "preco_por_definir": "[€]"
+  },
+  "sobre": {
+    "titulo": "Sobre",
+    "frase_destaque": "[Frase curta sobre a história do Delycius]",
+    "texto": "[Dois ou três parágrafos curtos: origem, ingredientes, o que torna os doces diferentes.]",
+    "ponto1_titulo": "[Ponto 1]",
+    "ponto1_texto": "[Frase curta]",
+    "ponto2_titulo": "[Ponto 2]",
+    "ponto2_texto": "[Frase curta]",
+    "ponto3_titulo": "[Ponto 3]",
+    "ponto3_texto": "[Frase curta]",
+    "botao_menu": "Ver menu",
+    "foto": "sobre"
+  },
+  "contactos": {
+    "titulo": "Contactos",
+    "morada_titulo": "Morada",
+    "morada_linha1": "[Rua e número]",
+    "morada_linha2": "[Código postal, cidade]",
+    "horario_titulo": "Horário",
+    "horario": "[Dias e horas de abertura]",
+    "contacto_titulo": "Contacto",
+    "telefone": "[Telefone]",
+    "botao_como_chegar": "Como chegar",
+    "botao_ligar": "Ligar",
+    "telefone_numero": "",
+    "link_mapa": "#",
+    "mapa_placeholder": "[MAPA]"
+  }
+}

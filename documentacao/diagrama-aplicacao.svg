@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 690" width="1120" height="690" font-family="Jost, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Delycius · arquitetura geral da aplicação</title>
+<desc id="d">Fase 1: o site em Astro lê os ficheiros textos.json, produtos.json e a pasta fotos, e é publicado pelo alojamento. Fase 2: o dono envia mensagens por Telegram a um bot que valida, pede confirmação e altera os ficheiros no repositório, o que dispara um novo build do site.</desc>
+<defs>
+<marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#161616"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="1120" height="690" fill="#FCFCFB"/>
+
+<text x="40" y="52" font-size="28" font-weight="400" fill="#161616" letter-spacing="1">Delycius · arquitetura geral</text>
+<text x="40" y="78" font-size="14" fill="#5E5E5E">Site estático (Astro) alimentado por ficheiros, com um bot para o dono atualizar o conteúdo</text>
+<rect x="40" y="90" width="48" height="3" fill="#D98A8A"/>
+
+<text x="40" y="124" font-size="12" letter-spacing="2" fill="#5E5E5E">FASE 1 · SITE</text>
+
+<rect x="40" y="135" width="400" height="235" rx="8" fill="#F3EDE8" stroke="#161616" stroke-width="1.5"/>
+<text x="60" y="165" font-size="15" font-weight="500" fill="#161616">Repositório do projeto (Git)</text>
+
+<rect x="60" y="185" width="170" height="64" rx="6" fill="#FCFCFB" stroke="#161616" stroke-width="1.2"/>
+<text x="145" y="213" font-size="14" text-anchor="middle" fill="#161616">Código do site</text>
+<text x="145" y="233" font-size="12" text-anchor="middle" fill="#5E5E5E">(Astro)</text>
+
+<rect x="250" y="185" width="170" height="64" rx="6" fill="#FCFCFB" stroke="#161616" stroke-width="1.2"/>
+<text x="335" y="213" font-size="14" text-anchor="middle" fill="#161616">fotos/</text>
+<text x="335" y="233" font-size="12" text-anchor="middle" fill="#5E5E5E">(g01.jpg, w02.jpg…)</text>
+
+<rect x="60" y="275" width="170" height="64" rx="6" fill="#FCFCFB" stroke="#161616" stroke-width="1.2"/>
+<text x="145" y="303" font-size="14" text-anchor="middle" fill="#161616">textos.json</text>
+<text x="145" y="323" font-size="12" text-anchor="middle" fill="#5E5E5E">(todos os textos)</text>
+
+<rect x="250" y="275" width="170" height="64" rx="6" fill="#FCFCFB" stroke="#161616" stroke-width="1.2"/>
+<text x="335" y="303" font-size="14" text-anchor="middle" fill="#161616">produtos.json</text>
+<text x="335" y="323" font-size="12" text-anchor="middle" fill="#5E5E5E">(itens à venda)</text>
+
+<line x1="440" y1="252" x2="500" y2="252" stroke="#161616" stroke-width="1.5" marker-end="url(#seta)"/>
+<text x="470" y="238" font-size="11" text-anchor="middle" fill="#5E5E5E">nova versão</text>
+
+<rect x="500" y="190" width="200" height="124" rx="8" fill="#FCFCFB" stroke="#161616" stroke-width="1.5"/>
+<text x="600" y="228" font-size="16" font-weight="500" text-anchor="middle" fill="#161616">Alojamento</text>
+<text x="600" y="256" font-size="13" text-anchor="middle" fill="#5E5E5E">constrói o site</text>
+<text x="600" y="276" font-size="13" text-anchor="middle" fill="#5E5E5E">automaticamente a cada</text>
+<text x="600" y="296" font-size="13" text-anchor="middle" fill="#5E5E5E">alteração</text>
+
+<line x1="700" y1="252" x2="760" y2="252" stroke="#161616" stroke-width="1.5" marker-end="url(#seta)"/>
+
+<rect x="760" y="212" width="150" height="80" rx="8" fill="#FCFCFB" stroke="#161616" stroke-width="1.5"/>
+<text x="835" y="248" font-size="15" font-weight="500" text-anchor="middle" fill="#161616">Site publicado</text>
+<text x="835" y="270" font-size="12" text-anchor="middle" fill="#5E5E5E">(páginas HTML)</text>
+
+<line x1="950" y1="252" x2="910" y2="252" stroke="#161616" stroke-width="1.5" marker-end="url(#seta)"/>
+
+<rect x="950" y="212" width="130" height="80" rx="8" fill="#FCFCFB" stroke="#161616" stroke-width="1.5"/>
+<text x="1015" y="248" font-size="15" font-weight="500" text-anchor="middle" fill="#161616">Visitantes</text>
+<text x="1015" y="270" font-size="12" text-anchor="middle" fill="#5E5E5E">(telemóvel e PC)</text>
+
+<text x="40" y="440" font-size="12" letter-spacing="2" fill="#5E5E5E">FASE 2 · ATUALIZAÇÃO PELO BOT</text>
+
+<path d="M600,455 V405 H240 V372" fill="none" stroke="#161616" stroke-width="1.5" marker-end="url(#seta)"/>
+<text x="420" y="396" font-size="12" text-anchor="middle" fill="#5E5E5E">altera os ficheiros e guarda no repositório</text>
+
+<rect x="40" y="467" width="210" height="80" rx="8" fill="#FCFCFB" stroke="#161616" stroke-width="1.5"/>
+<text x="145" y="501" font-size="15" font-weight="500" text-anchor="middle" fill="#161616">Dono do restaurante</text>
+<text x="145" y="522" font-size="12" text-anchor="middle" fill="#5E5E5E">(preços, produtos, fotos, textos)</text>
+
+<line x1="250" y1="507" x2="300" y2="507" stroke="#161616" stroke-width="1.5" marker-start="url(#seta)" marker-end="url(#seta)"/>
+
+<rect x="300" y="467" width="140" height="80" rx="8" fill="#FCFCFB" stroke="#161616" stroke-width="1.5"/>
+<text x="370" y="501" font-size="15" font-weight="500" text-anchor="middle" fill="#161616">Telegram</text>
+<text x="370" y="522" font-size="12" text-anchor="middle" fill="#5E5E5E">(ou outro canal)</text>
+
+<line x1="440" y1="507" x2="500" y2="507" stroke="#161616" stroke-width="1.5" marker-start="url(#seta)" marker-end="url(#seta)"/>
+
+<rect x="500" y="455" width="290" height="124" rx="8" fill="#F6E3E1" stroke="#161616" stroke-width="1.5"/>
+<text x="645" y="484" font-size="15" font-weight="500" text-anchor="middle" fill="#161616">Bot / API (função)</text>
+<text x="520" y="508" font-size="13" fill="#161616">1 · valida o remetente</text>
+<text x="520" y="528" font-size="13" fill="#161616">2 · interpreta o comando</text>
+<text x="520" y="548" font-size="13" fill="#161616">3 · pede confirmação ao dono</text>
+<text x="520" y="568" font-size="13" fill="#161616">4 · valida as regras e atualiza</text>
+
+<line x1="790" y1="517" x2="850" y2="517" stroke="#161616" stroke-width="1.5" stroke-dasharray="6 4" marker-start="url(#seta)" marker-end="url(#seta)"/>
+
+<rect x="850" y="477" width="230" height="80" rx="8" fill="#FCFCFB" stroke="#161616" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="965" y="511" font-size="15" font-weight="500" text-anchor="middle" fill="#161616">Modelo de linguagem</text>
+<text x="965" y="532" font-size="12" text-anchor="middle" fill="#5E5E5E">(fase futura · texto livre)</text>
+
+<text x="40" y="624" font-size="13" fill="#5E5E5E">Se uma alteração gerar um ficheiro com erros, o build falha e o site mantém a versão anterior.</text>
+<text x="40" y="646" font-size="13" fill="#5E5E5E">Cada alteração fica no histórico do Git e pode ser desfeita.</text>
+</svg>

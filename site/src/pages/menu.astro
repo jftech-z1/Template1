@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import textos from '../data/textos.json';
+import dados from '../data/produtos.json';
+
+const m = textos.menu;
+
+function formatarPreco(preco) {
+  if (preco === null || preco === undefined) return m.preco_por_definir;
+  return `${String(preco).replace('.', ',')} €`;
+}
+
+const categorias = [
+  { id: 'gelados', titulo: m.categoria_gelados, opcoes: m.opcoes_gelados },
+  { id: 'waffles', titulo: m.categoria_waffles, opcoes: m.opcoes_waffles },
+  { id: 'crepes', titulo: m.categoria_crepes, opcoes: m.opcoes_crepes },
+].map((c) => ({
+  ...c,
+  itens: dados.produtos
+    .filter((p) => p.categoria === c.id && p.disponivel)
+    .map((p) => ({
+      ...p,
+      precoTexto: formatarPreco(p.preco),
+      // Dados que o modal vai mostrar quando se clica no item
+      modal: JSON.stringify({
+        nome: p.nome,
+        descricao: p.descricao,
+        ingredientes: p.ingredientes,
+        opcoes: p.opcoes,
+        preco: formatarPreco(p.preco),
+        foto: p.foto,
+        categoria: c.titulo,
+        opcoesTitulo: c.opcoes,
+      }),
+    })),
+}));
+---
+
+<Base titulo={m.titulo}>
+  <div class="container menu">
+    <div class="cabecalho-pagina">
+      <span class="barra"></span>
+      <h1 class="titulo-pagina">{m.titulo}</h1>
+    </div>
+
+    <nav class="chips">
+      {categorias.map((c) => <a href={`#${c.id}`}>{c.titulo}</a>)}
+    </nav>
+
+    {categorias.map((c) => (
+      <section class="menu-seccao" id={c.id}>
+        <h2 class="eyebrow">{c.titulo}</h2>
+        <ul class="lista">
+          {c.itens.map((p) => (
+            <li>
+              <button type="button" class="item" data-produto={p.modal}>
+                <span class="item-texto">
+                  <span class="item-nome">{p.nome}</span>
+                  <span class="item-curta">{p.descricao_curta}</span>
+                </span>
+                <span class="item-preco">
+                  {p.precoTexto}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 6l6 6-6 6"></path>
+                  </svg>
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <p class="nota">{m.nota_alergenios}</p>
+  </div>
+
+  <dialog id="produto-modal" class="modal" aria-labelledby="modal-nome">
+    <form method="dialog">
+      <button class="fechar" aria-label={textos.navegacao.fechar}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+    </form>
+    <div class="modal-corpo">
+      <div class="foto modal-foto">
+        <img id="modal-foto" alt="" />
+      </div>
+      <div class="modal-info">
+        <p class="eyebrow" id="modal-categoria"></p>
+        <h2 id="modal-nome"></h2>
+        <p class="modal-preco" id="modal-preco"></p>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="bloco" id="modal-ingredientes-bloco">
+          <p class="eyebrow">{m.ingredientes_titulo}</p>
+          <p class="modal-desc" id="modal-ingredientes"></p>
+        </div>
+        <div class="bloco" id="modal-opcoes-bloco">
+          <p class="eyebrow" id="modal-opcoes-titulo"></p>
+          <ul class="tags" id="modal-opcoes"></ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</Base>
+
+<script>
+  const modal = document.getElementById('produto-modal');
+  const el = (id) => document.getElementById(id);
+
+  function abrir(p) {
+    el('modal-categoria').textContent = p.categoria;
+    el('modal-nome').textContent = p.nome;
+    el('modal-preco').textContent = p.preco;
+    el('modal-desc').textContent = p.descricao;
+
+    // Foto: se o ficheiro não existir, o bloco neutro fica visível
+    const img = el('modal-foto');
+    img.style.display = '';
+    img.onerror = () => { img.style.display = 'none'; };
+    img.alt = p.nome;
+    img.src = `/fotos/${p.foto}.jpg`;
+
+    // Ingredientes
+    const ingredientes = (p.ingredientes || []).join(', ');
+    el('modal-ingredientes').textContent = ingredientes;
+    el('modal-ingredientes-bloco').style.display = ingredientes ? '' : 'none';
+
+    // Opções (sabores, coberturas ou recheios)
+    const lista = el('modal-opcoes');
+    lista.replaceChildren();
+    (p.opcoes || []).forEach((o) => {
+      const li = document.createElement('li');
+      li.textContent = o;
+      lista.appendChild(li);
+    });
+    el('modal-opcoes-titulo').textContent = p.opcoesTitulo;
+    el('modal-opcoes-bloco').style.display = (p.opcoes || []).length ? '' : 'none';
+
+    modal.showModal();
+  }
+
+  document.querySelectorAll('.item').forEach((botao) => {
+    botao.addEventListener('click', () => abrir(JSON.parse(botao.dataset.produto)));
+  });
+
+  // Clicar fora da caixa fecha o modal
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
+  });
+</script>

@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import textos from '../data/textos.json';
+
+const c = textos.contactos;
+const hrefTelefone = c.telefone_numero ? `tel:${c.telefone_numero}` : '#';
+---
+
+<Base titulo={c.titulo}>
+  <div class="container">
+    <div class="cabecalho-pagina">
+      <span class="barra"></span>
+      <h1 class="titulo-pagina">{c.titulo}</h1>
+    </div>
+
+    <div class="mapa">{c.mapa_placeholder}</div>
+
+    <div class="contacto-grelha">
+      <div class="contacto-bloco">
+        <div class="item-info">
+          <p class="eyebrow">{c.morada_titulo}</p>
+          <p>{c.morada_linha1}<br />{c.morada_linha2}</p>
+        </div>
+        <div class="item-info">
+          <p class="eyebrow">{c.horario_titulo}</p>
+          <p>{c.horario}</p>
+        </div>
+        <div class="item-info">
+          <p class="eyebrow">{c.contacto_titulo}</p>
+          <p>{c.telefone}<br />{textos.geral.instagram}</p>
+        </div>
+      </div>
+      <div class="contacto-bloco">
+        <div class="botoes">
+          <a class="btn btn-escuro" href={c.link_mapa}>{c.botao_como_chegar}</a>
+          <a class="btn btn-claro" href={hrefTelefone}>{c.botao_ligar}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
